@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+    background: #1d3354 center center no-repeat;
+    opacity: 0.879;
+    background-size: cover;
+    display: flex;
+    overflow: hidden;
+    color: black;
+    height: 100%;
+    width: 100%;
+}
+
+.app {
+    /* background-color: #467599; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+    height: 100%;
+    width: 50%;
+}
+
+#msg {
+    visibility: hidden;
+    color: red;
+    font-weight: bold;
+    font-size: 22px;
+    font-family: Verdana;
+    margin: 15px auto 15px auto;
+}
+
+#resultPhoto {
+    visibility: hidden;
+}
+button {
+    text-transform: uppercase;
+    color: #9ed8db;
+    padding: 7px 10px;
+    border-radius: 50px;
+    border: 2.5px solid #9ed8db;
+    font-size: 18px;
+    font-weight: bold;
+    background: transparent;
+    transition: 0.4s ease-in-out;
+    margin: 30px 5px;
+}
+
+button:hover {
+    background: #9ed8db;
+    cursor: pointer;
+    color: black;
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    justify-content: center;
+}
+.audio-controls button {
+    margin: 0px 5px;
+}
+canvas {
+    border-radius: 50px;
+    background-color: black;
+}
+
+select {
+    text-transform: uppercase;
+    color: #9ed8db;
+    padding: 5px 10px;
+    border-radius: 50px;
+    border: 2.5px solid #9ed8db;
+    font-size: 18px;
+    font-weight: bold;
+    background: transparent;
+    transition: 0.4s ease-in-out;
+    margin: 30px 5px;
+    height: 40px;
+}
+select:hover {
+    background: #9ed8db;
+    cursor: pointer;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+audio {
+    height: 40px;
+}
+
+.app2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+    height: 100%;
+    width: 50%;
+}
+
+.app2 h1 {
+    color: #83f738;
+    text-shadow: 4px 4px #dd15e3;
+    border: 5px;
+    font-size: 120px;
+    margin-bottom: 90px;
+    padding: 20px;
+}
+
+.app2 img {
+    border-radius: 50px;
+    height: 300;
+    width: 400;
+}
+
+/* url("https://images.unsplash.com/photo-1563518839049-f44a5e423f12?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2775&q=80") */

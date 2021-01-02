@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>I Heard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="app">
+      <div>
+        <img style="position: absolute; max-width: 100%; left: 0px; top: 0px; z-index: -1;" src="./Grid BG.svg" alt="">
+      </div>
+      <div>
+          <select name="" id="micSelect"></select>
+          <select id="visSelect">
+            <option value="frequencybars">Bar</option>
+            <option value="sinewave">Wave</option>
+            <option value="circle">Circle</option>
+          </select>
+      </div>
+
+      <div class="audio-controls">
+        <button id="record">Record</button>
+        <button id="stop">Stop</button>
+        <button>
+          <a id="download">Download</a>
+        </button>
+      </div>
+      <div class="audio-controls">
+        <audio id="audio" controls></audio>
+      </div>
+
+      <div id="msg">Recording...</div>
+
+      <canvas width="400" height="300"></canvas>
+      
+      
+    </div>
+    <div class="app2">
+      <h1>iHeard</h1>
+      <img width="400" height="300" id="resultPhoto" src="https://heartmindonline.org/sites/default/files/ChildrenOutside.jpg" alt="" />
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
