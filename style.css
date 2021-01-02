@@ -15,6 +15,7 @@ body {
     color: black;
     height: 100%;
     width: 100%;
+    scroll-behavior: smooth;
 }
 
 .app {
@@ -122,7 +123,7 @@ audio {
     text-shadow: 4px 4px #dd15e3;
     border: 5px;
     font-size: 120px;
-    margin-bottom: 90px;
+    margin-bottom: 40px;
     padding: 20px;
 }
 
@@ -130,4 +131,18 @@ audio {
     border-radius: 50px;
     height: 300;
     width: 400;
+    margin: 40px;
+    margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 20px;
+        height: 100%;
+        width: 100%;
+    }
 }
