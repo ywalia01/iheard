@@ -39,10 +39,6 @@ body {
     margin: 15px auto 15px auto;
 }
 
-#resultPhoto {
-    visibility: hidden;
-}
-
 button {
     text-transform: uppercase;
     color: #9ed8db;
@@ -118,22 +114,28 @@ audio {
     width: 50%;
 }
 
-.app2 h1 {
-    color: #83f738;
-    text-shadow: 4px 4px #dd15e3;
-    border: 5px;
-    font-size: 120px;
-    margin-bottom: 40px;
+.app2_img1 {
+    margin-bottom: 55px;
     padding: 20px;
+    width: 465px;
+    height: 350px;
 }
 
-.app2 img {
+#resultText {
+    margin: 30px;
+    padding: 30px;
+    visibility: hidden;
+    font-size: 60px;
+    color: #c95a4c;
+}
+
+/* .app2_img2 {
     border-radius: 50px;
     height: 300;
     width: 400;
     margin: 40px;
-    margin-top: 80px;
-}
+    margin-top: 20px;
+} */
 
 @media (max-width: 768px) {
     body {

@@ -10,7 +10,7 @@
   <body>
     <div class="app">
       <div>
-        <img style="position: absolute; max-width: 100%; left: 0px; top: 0px; z-index: -1;" src="./Grid BG.svg" alt="">
+        <img style="position: absolute; max-width: 100%; left: 0px; top: 0px; z-index: -1;" src="./img/Grid BG.svg" alt="">
       </div>
       <div>
           <select name="" id="micSelect"></select>
@@ -21,11 +21,25 @@
           </select>
       </div>
 
+      <div>
+        <select name="" id="sound_class">
+          <option value="" selected disabled hidden>Sound Type</option>
+          <option value="ambient">Ambient Sound</option>
+          <option value="texttospeech">Text to Speech</option>
+        </select>
+      </div>
+
       <div class="audio-controls">
-        <button id="record">Record</button>
-        <button id="stop">Stop</button>
+        <button id="record">
+          <img src="./img/record.svg" alt="">
+        </button>
+        <button id="stop">
+          <img src="./img/stop.png" alt="">
+        </button>
         <button>
-          <a id="download">Download</a>
+          <a id="download">
+            <img src="./img/dload.png" alt="">
+          </a>
         </button>
       </div>
       <div class="audio-controls">
@@ -39,9 +53,12 @@
     </div>
     <div class="app2">
 
-      <h1>iHeard</h1>
-      <img width="400" height="300" id="resultPhoto" src="https://heartmindonline.org/sites/default/files/ChildrenOutside.jpg" alt="" />
-      
+      <img class="app2_img1" src="./img/logo2.png" alt="">
+      <div class="resultTextDiv">
+        
+        <p id="resultText">The text from the API</p>    
+      </div>
+
     </div>
     <script src="script.js"></script>
   </body>

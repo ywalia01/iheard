@@ -147,7 +147,7 @@
   function start() {
     recording = true;
     document.querySelector('#msg').style.visibility = 'visible'
-    document.querySelector('#resultPhoto').style.visibility = 'hidden'
+    document.querySelector('#resultText').style.visibility = 'hidden'
     // reset the buffers for the new recording
     leftchannel.length = rightchannel.length = 0;
     recordingLength = 0;
@@ -159,7 +159,6 @@
     console.log('Stop')
     recording = false;
     document.querySelector('#msg').style.visibility = 'hidden'
-    document.querySelector('#resultPhoto').style.visibility = 'visible'
 
     
     
@@ -205,7 +204,49 @@
     }
 
     // our final binary blob
-    const blob = new Blob ( [ view ], { type : 'audio/wav' } );
+    const blob = new Blob([view], { type: 'audio/wav' });
+
+    // Connecting to the APIs logic: ==============
+    let result_text = document.querySelector("#resultText");
+    console.log(result_text);
+    let sound_class = document.querySelector("#sound_class").value;
+    console.log(sound_class);
+
+    if (sound_class === "ambient") {
+      formData.append("file", blob);
+      fetch("http://localhost:5000/ambient", {
+        method: "POST",
+        body: formData,
+      }).then(response =>
+          response.json().then(data => {
+            console.log(data.name);
+            result_text.innerHTML = data.name;
+          })
+      );
+      result_text.style.visibility = 'visible';
+    }
+    else if (sound_class === "texttospeech") {
+      formData.append("file", blob);
+      fetch("http://localhost:5000/google", {
+        method: "POST",
+        body: formData,
+      }).then(response =>
+          response.json().then(data => {
+            console.log(data.text);
+            result_text.innerHTML = data.text;
+          })
+      );
+      result_text.style.visibility = 'visible';
+    }
+    else {
+      result_text.innerHTML = "Please select a Sound Type before recording"
+      result_text.style.visibility = 'visible';
+    }
+    
+    
+    
+
+    // ============================================
     
     const audioUrl = URL.createObjectURL(blob);
     console.log('BLOB ', blob);
@@ -228,7 +269,6 @@
     let visualSetting = visualSelect.value;
     console.log(visualSetting);
     if (!analyser) return;
-
     if(visualSetting === "sinewave") {
       analyser.fftSize = 2048;
       var bufferLength = analyser.fftSize;
