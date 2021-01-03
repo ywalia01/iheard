@@ -43,7 +43,7 @@ button {
 }
 
 button:hover {
-    background: white
+    background: white;
     cursor: pointer;
     color: black;
 }
