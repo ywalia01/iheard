@@ -117,8 +117,8 @@ audio {
 .app2_img1 {
     margin-bottom: 55px;
     padding: 20px;
-    width: 465px;
-    height: 350px;
+    width: 500px;
+    height: 390px;
 }
 
 #resultText {
@@ -126,7 +126,7 @@ audio {
     padding: 30px;
     visibility: hidden;
     font-size: 60px;
-    color: #c95a4c;
+    color: #9ed8db;
 }
 
 /* .app2_img2 {
