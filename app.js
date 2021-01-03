@@ -147,7 +147,7 @@
   function start() {
     recording = true;
     document.querySelector('#msg').style.visibility = 'visible'
-    // document.querySelector('#resultText').style.visibility = 'hidden'
+    document.querySelector('#resultText').style.visibility = 'hidden'
     // reset the buffers for the new recording
     leftchannel.length = rightchannel.length = 0;
     recordingLength = 0;
