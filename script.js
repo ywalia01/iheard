@@ -16,16 +16,16 @@
   let micSelect = document.querySelector('#micSelect');
   let stream = null;
   let tested = false;
-  
+
   try {
     window.stream = stream = await getStream();
-    console.log('Got stream');  
+    console.log('Got stream');
   } catch(err) {
     alert('Issue getting mic', err);
   }
-  
+
   const deviceInfos = await navigator.mediaDevices.enumerateDevices();
-  
+
   var mics = [];
   for (let i = 0; i !== deviceInfos.length; ++i) {
     let deviceInfo = deviceInfos[i];
@@ -40,49 +40,49 @@
       micSelect.appendChild(option);
     }
   }
-  
+
   function getStream(constraints) {
     if (!constraints) {
       constraints = { audio: true, video: false };
     }
     return navigator.mediaDevices.getUserMedia(constraints);
   }
-  
-  
+
+
   setUpRecording();
-  
+
   function setUpRecording() {
     context = new AudioContext();
     sampleRate = context.sampleRate;
-    
+
     // creates a gain node
     volume = context.createGain();
-    
+
     // creates an audio node from the microphone incoming stream
     audioInput = context.createMediaStreamSource(stream);
-    
+
     // Create analyser
     analyser = context.createAnalyser();
-    
+
     // connect audio input to the analyser
     audioInput.connect(analyser);
-    
+
     // connect analyser to the volume control
     // analyser.connect(volume);
-    
+
     let bufferSize = 2048;
     let recorder = context.createScriptProcessor(bufferSize, 2, 2);
-    
+
     // we connect the volume control to the processor
     // volume.connect(recorder);
-    
+
     analyser.connect(recorder);
-    
+
     // finally connect the processor to the output
-    recorder.connect(context.destination); 
+    recorder.connect(context.destination);
 
     recorder.onaudioprocess = function(e) {
-      // Check 
+      // Check
       if (!recording) return;
       // Do something with the data, i.e Convert this to WAV
       console.log('recording');
@@ -108,8 +108,8 @@
     };
     visualize();
   };
-  
-  
+
+
 
   function mergeBuffers(channelBuffer, recordingLength) {
     let result = new Float32Array(recordingLength);
@@ -122,7 +122,7 @@
     }
     return result;
   }
-  
+
   function interleave(leftChannel, rightChannel){
     let length = leftChannel.length + rightChannel.length;
     let result = new Float32Array(length);
@@ -136,8 +136,8 @@
     }
     return result;
   }
-  
-  function writeUTFBytes(view, offset, string){ 
+
+  function writeUTFBytes(view, offset, string){
     let lng = string.length;
     for (let i = 0; i < lng; i++){
       view.setUint8(offset + i, string.charCodeAt(i));
@@ -160,14 +160,14 @@
     recording = false;
     document.querySelector('#msg').style.visibility = 'hidden'
 
-    
-    
+
+
     // we flat the left and right channels down
     let leftBuffer = mergeBuffers ( leftchannel, recordingLength );
     let rightBuffer = mergeBuffers ( rightchannel, recordingLength );
     // we interleave both channels together
     let interleaved = interleave ( leftBuffer, rightBuffer );
-    
+
     ///////////// WAV Encode /////////////////
     // from http://typedarray.org/from-microphone-to-wav-with-getusermedia-and-web-audio/
     //
@@ -213,6 +213,7 @@
     console.log(sound_class);
 
     if (sound_class === "ambient") {
+      const formData = new FormData();
       formData.append("file", blob);
       fetch("http://localhost:5000/ambient", {
         method: "POST",
@@ -226,6 +227,7 @@
       result_text.style.visibility = 'visible';
     }
     else if (sound_class === "texttospeech") {
+      const formData = new FormData();
       formData.append("file", blob);
       fetch("http://localhost:5000/google", {
         method: "POST",
@@ -242,12 +244,12 @@
       result_text.innerHTML = "Please select a Sound Type before recording"
       result_text.style.visibility = 'visible';
     }
-    
-    
-    
+
+
+
 
     // ============================================
-    
+
     const audioUrl = URL.createObjectURL(blob);
     console.log('BLOB ', blob);
     console.log('URL ', audioUrl);
@@ -256,7 +258,7 @@
     link.setAttribute('href', audioUrl);
     link.download = 'output.wav';
   }
-  
+
   // Visualizer function from
   // https://webaudiodemos.appspot.com/AudioRecorder/index.html
   //
@@ -353,14 +355,14 @@
       let dataArray = new Uint8Array(bufferLength);
 
       canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
-      
+
       let draw = () => {
         drawVisual = requestAnimationFrame(draw);
-        
+
         analyser.getByteFrequencyData(dataArray);
         canvasCtx.fillStyle = 'rgb(0, 0, 0)';
         canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
-        
+
         // let radius = dataArray.reduce((a,b) => a + b) / bufferLength;
         let radius = dataArray[2] / 2
         if (radius < 20) radius = 20;
@@ -378,19 +380,19 @@
     }
 
   }
-  
+
   visualSelect.onchange = function() {
     window.cancelAnimationFrame(drawVisual);
     visualize();
   };
-  
+
   micSelect.onchange = async e => {
     console.log('now use device ', micSelect.value);
     stream.getTracks().forEach(function(track) {
       track.stop();
     });
     context.close();
-    
+
     stream = await getStream({ audio: {
       deviceId: {exact: micSelect.value} }, video: false });
     setUpRecording();
