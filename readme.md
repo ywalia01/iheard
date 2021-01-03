@@ -1,3 +1,3 @@
 ## iHeard
 
-### https://ywalia01.github.io/iheard/
+### https://iheard.tech
