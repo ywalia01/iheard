@@ -1,69 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" >
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Heard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-    <script src="https://use.fontawesome.com/418cf11781.js"></script>
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    <div class="app">
-      <div>
-        <img style="position: absolute; max-width: 100%; left: 0px; top: 0px; z-index: -1;" src="./img/Grid BG.svg" alt="">
-      </div>
-      <div>
-          <select name="" id="micSelect"></select>
-          <select id="visSelect">
-            <option value="frequencybars">Bar</option>
-            <option value="sinewave">Wave</option>
-            <option value="circle">Circle</option>
-          </select>
-      </div>
-
-      <div>
-        <select name="" id="sound_class">
-          <option value="" selected disabled hidden>Sound Type</option>
-          <option value="ambient">Ambient Sound</option>
-          <option value="texttospeech">Text to Speech</option>
-        </select>
-      </div>
-
-      <div class="audio-controls">
-        <button style="border-radius: none;" id="record">
-          <!-- <img src="./img/record.svg" alt=""> -->
-          <i class="fa fa-2x fa-microphone" aria-hidden="true"></i>
-        </button>
-        <button style="border-radius: none;" id="stop">
-          <!-- <img src="./img/stop.png" alt=""> -->
-          <i class="fa fa-2x fa-stop" aria-hidden="true"></i>
-        </button>
-        <button style="border-radius: none;">
-          <a id="download">
-            <!-- <img src="./img/dload.png" alt=""> -->
-            <i class="fa fa-2x fa-download" aria-hidden="true"></i>
-          </a>
-        </button>
-      </div>
-      <div class="audio-controls">
-        <audio id="audio" controls></audio>
-      </div>
-
-      <div id="msg">Recording...</div>
-
-      <canvas width="400" height="300"></canvas>
-      
-    </div>
-    <div class="app2">
-
-      <img class="app2_img1" src="./img/logo3.png" alt="">
-      <div class="resultTextDiv">
+    <title>iHeard</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <img style="position: absolute; max-width: 100%; left: 0px; top: 0px; z-index: -1;" src="./img/Grid BG.svg" alt="">
+        </div>
+        <div>
+            <img id="logo"src="./img/logo3.png" alt="">
+        </div>
+        <div>
+            <p>An on-the-go web app for the hard of hearing</p>
+            <p>Supported Languages: English, Chinese, Hindi, Spanish</p>
+        </div>
+        <div>
+            <button>
+                <a href="app.html">Get Started</a>
+            </button>
+        </div>
         
-        <p id="resultText">The text from the API</p>    
-      </div>
-
     </div>
-    <script src="script.js"></script>
-  </body>
+    
+</body>
 </html>

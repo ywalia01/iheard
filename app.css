@@ -115,27 +115,19 @@ audio {
 }
 
 .app2_img1 {
-    margin-bottom: 55px;
+    /* margin-bottom: 55px; */
     padding: 20px;
-    width: 500px;
+    width: 600px;
     height: 390px;
 }
 
 #resultText {
     margin: 30px;
     padding: 30px;
-    visibility: hidden;
-    font-size: 60px;
+    /* visibility: hidden; */
+    font-size: 50px;
     color: #9ed8db;
 }
-
-/* .app2_img2 {
-    border-radius: 50px;
-    height: 300;
-    width: 400;
-    margin: 40px;
-    margin-top: 20px;
-} */
 
 @media (max-width: 768px) {
     body {
