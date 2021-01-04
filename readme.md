@@ -6,4 +6,4 @@ An on-the-go web app for the hard of hearing
 
 Supported Languages: English, Chinese, Hindi, Spanish
 
-#### https://devpost.com/software/iheard
+### https://devpost.com/software/iheard
