@@ -216,7 +216,7 @@
     if (sound_class === "ambient") {
       const formData = new FormData();
       formData.append("file", blob);
-      fetch("https://100.26.237.4/ambient", {
+      fetch("https://aws.iheard.tech/ambient", {
         method: "POST",
         body: formData,
       }).then(response =>
@@ -230,7 +230,7 @@
     else if (sound_class === "texttospeech") {
       const formData = new FormData();
       formData.append("file", blob);
-      fetch("https://100.26.237.4/google", {
+      fetch("https://aws.iheard.tech/google", {
         method: "POST",
         body: formData,
       }).then(response =>
